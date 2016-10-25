@@ -23,9 +23,33 @@ en:
     enter_phone: Please enter your phone number.
     enter_message: Please enter a message.
     send_message: Send Message
-
-  section:
-    test_name: Lorem Ipsum
-    test_content: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
   welcome: Welcome To Review Book System!
   nice_to: It's Nice To Meet You
+  _student_id: "Student ID: "
+  _class: "Class: "
+  _university: "University: "
+  _position: "Position: "
+  tien:
+    name: Nguyen Huu Tien
+    student_id: "20133945"
+    class: HEDSPI C K58
+    university: Ha Noi University Science And Technology
+    position: Leader
+  minh:
+    name: Cao Van Minh
+    student_id: "20122071"
+    class: HEDSPI C K58
+    university: Ha Noi University Science And Technology
+    position: Developer
+  hai:
+    name: Tran Minh Hai
+    student_id: "20131271"
+    class: HEDSPI C K58
+    university: Ha Noi University Science And Technology
+    position: Developer
+  tung:
+    name: Le Tat Tung
+    student_id: "20134394"
+    class: HEDSPI C K58
+    university: Ha Noi University Science And Technology
+    position: Developer
