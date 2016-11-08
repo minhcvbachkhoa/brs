@@ -14,11 +14,12 @@ ActiveRecord::Schema.define(version: 20161107100702) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
+    t.string   "description"
     t.date     "publish_date"
     t.string   "author"
     t.integer  "pages"
     t.string   "photo"
-    t.float    "rated"
+    t.float    "rate"
     t.integer  "category_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -105,7 +106,7 @@ ActiveRecord::Schema.define(version: 20161107100702) do
   create_table "reviews", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
-    t.integer  "rated"
+    t.integer  "rate"
     t.integer  "user_id"
     t.integer  "book_id"
     t.datetime "created_at", null: false
