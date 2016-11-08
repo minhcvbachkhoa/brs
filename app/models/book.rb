@@ -3,4 +3,6 @@ class Book < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   has_many :marks, dependent: :destroy
+
+  mount_uploader :photo, PhotoUploader
 end

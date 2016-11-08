@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 20161107100702) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "follows", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -65,6 +72,15 @@ ActiveRecord::Schema.define(version: 20161107100702) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["user_id"], name: "index_identities_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "review_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_likes_on_review_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "marks", force: :cascade do |t|
@@ -87,6 +103,7 @@ ActiveRecord::Schema.define(version: 20161107100702) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.string   "title"
     t.string   "content"
     t.integer  "rated"
     t.integer  "user_id"
