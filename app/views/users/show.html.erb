@@ -23,7 +23,7 @@
             <%= l @user.created_at, format: :default %>
           </p>
           <p>
-            <i class="fa fa-file-text-o fa-fw w3-margin-right w3-text-theme"></i>
+            <i class="fa fa-file-text-o fa-fw w3-margin-right w3-large w3-text-teal"></i>
             <%= link_to user_list_books_path(@user,
               book_status: Settings.book.list_book[0]), remote: true do %>
               <%= @user.size_reading %>
@@ -31,7 +31,7 @@
             <% end %>
           </p>
           <p>
-            <i class="fa fa-file-text fa-fw w3-margin-right w3-text-theme"></i>
+            <i class="fa fa-file-text fa-fw w3-margin-right w3-large w3-text-teal"></i>
             <%= link_to user_list_books_path(@user,
               book_status: Settings.book.list_book[1]), remote: true do %>
               <%= @user.size_read %>
@@ -39,7 +39,7 @@
             <% end %>
           </p>
           <p>
-            <i class="fa fa-star fa-fw w3-margin-right w3-text-theme"></i>
+            <i class="fa fa-star fa-fw w3-margin-right w3-large w3-text-teal"></i>
             <%= link_to user_list_books_path(@user,
               book_status: Settings.book.list_book[2]), remote: true do %>
               <%= @user.size_favorite %>

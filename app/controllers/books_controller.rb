@@ -7,7 +7,6 @@ class BooksController < ApplicationController
 
   private
   def load_data
-    @books = Book.all
     @supports = Supports::Book.new @book
     @mark = current_user.marks.find_by book_id: @book.id
     unless @mark

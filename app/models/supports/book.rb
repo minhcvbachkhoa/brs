@@ -24,6 +24,10 @@ class Supports::Book
     @books ||= Book.all
   end
 
+  def other_books
+    @other_books ||= Book.where(category_id: @book.category_id).limit 6
+  end
+
   def categories
     @categories ||= Category.all
   end
