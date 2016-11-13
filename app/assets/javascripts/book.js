@@ -36,11 +36,4 @@ document.addEventListener('turbolinks:load', function() {
     $('.two .bar').css('width', (rate_two / sum)*80 + '%');
     $('.one .bar').css('width', (rate_one / sum)*80 + '%');
   }
-
-  $(document).ready(function() {
-    $(document).on('click', '.pagination a', function(event) {
-      event.preventDefault();
-      $.getScript(this.href);
-    });
-  });
 });
