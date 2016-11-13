@@ -5,4 +5,6 @@ class Book < ApplicationRecord
   has_many :marks, dependent: :destroy
 
   mount_uploader :photo, PhotoUploader
+
+  STATUS = ["reading", "read"]
 end
