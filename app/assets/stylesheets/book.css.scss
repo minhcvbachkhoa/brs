@@ -234,24 +234,44 @@
         right: 10px;
         font-size: 2em;
       }
+    }
+  }
 
-      .nht-list-book-content {
-        padding-top: 10px;
+  .nht-list-book-content {
+    padding-top: 10px;
 
-        .nht-book-photo {
-          height: 200px;
-          margin-bottom: 10px;
-        }
+    .nht-book-photo {
+      height: 200px;
+      margin-bottom: 10px;
+    }
 
-        .nht-book-author {
-          color: #008340;
-        }
+    .nht-book-author {
+      color: #008340;
+    }
 
-        .hr {
-          margin-top: 0px !important;
-          margin-bottom: 5px !important;
-        }
-      }
+    .hr {
+      margin-top: 0px !important;
+      margin-bottom: 5px !important;
+    }
+  }
+}
+
+.nht-book-index {
+  margin-top: 60px;
+  text-align: center;
+
+  .input-group {
+    width: 50% !important;
+
+    .nht-icon {
+      width: 5px;
+      font-size: 20px;
+    }
+
+
+    .form-control {
+      width: 100% !important;
+      z-index: 0 !important;
     }
   }
 }
