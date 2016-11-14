@@ -18,5 +18,6 @@ class PagesController < ApplicationController
      @books = current_user.list_favorite.limit(6)
     end
     @most_books = Book.most_books
+    @activities = PublicActivity::Activity.all.order(created_at: :desc)
   end
 end
