@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :marks, dependent: :destroy
   has_many :identities
   has_many :likes, dependent: :destroy
+  has_many :requests, dependent: :destroy
   has_many :active_relationships, class_name: Follow.name,
     foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: Follow.name,
