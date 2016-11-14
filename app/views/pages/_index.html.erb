@@ -114,19 +114,28 @@
     <!-- Right Column -->
     <div class="w3-col m2">
       <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="nht-activity">
+          <h5><%= t "activity.all" %></h5>
+          <% @activities.each do |activity| %>
+            <li><%= render "public_activity/activities/activity", activity: activity %></li>
+          <% end %>
+        </div>
+        <hr>
         <div class="w3-container">
-          <p><%= t "book.most_book" %>:</p>
-          <% @most_books.each do |book| %>
-            <div class="nht-book-most">
-              <%= link_to book do %>
-                <%= image_tag book.photo.url, class: "width", alt: book.title %>
-              <% end %>
-              <%= link_to user_list_books_path(current_user,
-                author: book.author), remote: true do %>
-                <p class="nht-book-author"><%= book.author %></p>
-              <% end %>
-              <hr>
-            </div>
+          <div class="nht-book-most_book">
+            <p><%= t "book.most_book" %>:</p>
+            <% @most_books.each do |book| %>
+              <div class="nht-book-most">
+                <%= link_to book do %>
+                  <%= image_tag book.photo.url, class: "width", alt: book.title %>
+                <% end %>
+                <%= link_to user_list_books_path(current_user,
+                  author: book.author), remote: true do %>
+                  <p class="nht-book-author"><%= book.author %></p>
+                <% end %>
+                <hr>
+              </div>
+          </div>
           <% end %>
         </div>
       </div>

@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  include PublicActivity::Model
+
   def user_reviews
     Review.where("user_id = ? OR user_id IN(SELECT followed_id FROM follows
       WHERE follower_id = ?)", self.id, self.id)
@@ -32,6 +34,10 @@ class User < ApplicationRecord
 
   def following? other_user
     following.include? other_user
+  end
+
+  def like? activity
+    self.likes.find_by(activity_id: activity.id) ? true : false
   end
 
   Book::STATUS.each do |status|
