@@ -11,7 +11,7 @@
     <% @categories.each_with_index do |category, i| %>
       <tr>
         <td>
-          <%= category.name %>
+          <%= link_to category.name, [:admin, category] %>
         </td>
 
         <td>
