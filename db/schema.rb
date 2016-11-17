@@ -115,9 +115,10 @@ ActiveRecord::Schema.define(version: 20161114134612) do
     t.string   "book_title"
     t.date     "book_publish_date"
     t.string   "book_author"
+    t.integer  "status",            default: 0
     t.integer  "user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
