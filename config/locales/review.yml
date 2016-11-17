@@ -2,4 +2,6 @@ en:
   review:
     title: Reviews
     like: Like
+    unlike: UnLike
     comment: Comment
+    ago: ago
