@@ -7,4 +7,7 @@ class Request < ApplicationRecord
   validates :book_publish_date, presence: true
 
   default_scope -> {order created_at: :desc}
+
+  enum status: [:waiting, :accept, :reject]
+
 end
