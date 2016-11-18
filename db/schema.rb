@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114134612) do
+ActiveRecord::Schema.define(version: 20161118230718) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -35,10 +35,11 @@ ActiveRecord::Schema.define(version: 20161114134612) do
     t.string   "author"
     t.integer  "pages"
     t.string   "photo"
-    t.float    "rate"
+    t.integer  "sum_rate",     default: 0
+    t.integer  "sum_point",    default: 0
     t.integer  "category_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 
@@ -46,6 +47,21 @@ ActiveRecord::Schema.define(version: 20161114134612) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -125,11 +141,11 @@ ActiveRecord::Schema.define(version: 20161114134612) do
   create_table "reviews", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
-    t.integer  "rate"
+    t.integer  "rate",       default: 1
     t.integer  "user_id"
     t.integer  "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["book_id"], name: "index_reviews_on_book_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

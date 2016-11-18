@@ -12,14 +12,6 @@ class Supports::Book
     end
   end
 
-  def sum_rate
-    sum = 0
-    Settings.rate.list_rate.each do |rate|
-      sum += send(rate)
-    end
-    sum
-  end
-
   def books
     @books ||= Book.all
   end

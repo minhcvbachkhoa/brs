@@ -34,11 +34,13 @@
           <div class="nht-book-rate">
             <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 nht-book-rate-left">
               <div class="nht-book-rate-content">
-                <h1><%= @book.rate %></h1>
+                <h1>
+                  <%= @book.sum_rate == 0 ? 0 : (@book.sum_point.to_f / @book.sum_rate).round(1) %>
+                </h1>
               </div>
               <div class="nht-book-rate-sum">
                 <i class="fa fa-user">
-                  <%= @supports.sum_rate %>
+                  <%= @book.sum_rate %>
                 </i>
               </div>
             </div>
@@ -146,10 +148,15 @@
       <hr>
     </h4>
 
-    <div class="well">
+    <div class="">
       <div id="review_form">
+        <%= render "reviews/form" %>
+        <div class="clearfix"></div>
       </div>
-      <br>
+
+      <div class="nht-review-index" id="nht-review-id">
+        <%= render @book.reviews %>
+      </div>
     </div>
   </div>
 </div>

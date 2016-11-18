@@ -7,7 +7,8 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :author
       t.integer :pages
       t.string :photo
-      t.float :rate
+      t.integer :sum_rate, default: 0
+      t.integer :sum_point, default: 0
       t.references :category, foreign_key: true
 
       t.timestamps
