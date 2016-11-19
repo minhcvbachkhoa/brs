@@ -15,7 +15,6 @@ class Review < ApplicationRecord
   default_scope -> {order created_at: :desc}
 
   after_create :create_review_activity
-  after_create :update_rate_book
 
   include PublicActivity::Model
 
@@ -28,11 +27,5 @@ class Review < ApplicationRecord
   private
   def create_review_activity
     book.create_activity key: "reviews" , owner: user
-  end
-
-  def update_rate_book
-    book.sum_rate += 1
-    book.sum_point += rate
-    book.save
   end
 end
