@@ -1,6 +1,17 @@
 class Admin::CategoriesController < Admin::AdminController
   load_and_authorize_resource
 
+  def index
+    @categories = @categories.includes :books
+    @q = @categories.ransack params[:q]
+    @categories = @q.result.page(params[:page]).per Settings.per_page
+  end
+
+  def show
+    @q = @category.books.ransack params[:q]
+    @books = @q.result.page(params[:page]).per Settings.per_page
+  end
+
   def new
   end
 
@@ -12,15 +23,7 @@ class Admin::CategoriesController < Admin::AdminController
     end
   end
 
-  def index
-    @categories = @categories.includes :books
-    @q = @categories.ransack params[:q]
-    @categories = @q.result.page(params[:page]).per Settings.per_page
-  end
-
-  def show
-    @q = @category.books.ransack params[:q]
-    @books = @q.result.page(params[:page]).per Settings.per_page
+  def edit
   end
 
   def update
