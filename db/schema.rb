@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118230718) do
+ActiveRecord::Schema.define(version: 20161122162856) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -28,11 +28,23 @@ ActiveRecord::Schema.define(version: 20161118230718) do
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
   end
 
+  create_table "authors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "book_authors", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "books", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.date     "publish_date"
-    t.string   "author"
     t.integer  "pages"
     t.string   "photo"
     t.integer  "sum_rate",     default: 0

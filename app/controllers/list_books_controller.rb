@@ -7,9 +7,11 @@ class ListBooksController < ApplicationController
         per Settings.per_page
       @title ||= params[:book_status]
     else
-      @books ||= Book.list_books_with_author(params[:author]).page(params[:page]).
-        per Settings.per_page
-      @title ||= params[:author]
+      author = Author.find_by id: params[:author_id]
+      if author
+        @books ||= author.books.page(params[:page]).per Settings.per_page
+        @title ||= author.name
+      end
     end
   end
 end
