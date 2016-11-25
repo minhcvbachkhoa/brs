@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20161122162856) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
+    t.integer  "reply_id"
+    t.integer  "parent_id"
     t.integer  "user_id"
     t.integer  "review_id"
     t.datetime "created_at", null: false
