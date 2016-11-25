@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  post '/rate' => 'rater#create', :as => 'rate'
-  mount Ckeditor::Engine => '/ckeditor'
+  mount Ckeditor::Engine => "/ckeditor"
+
   devise_for :users, controllers: {
     registrations: "registrations",
     omniauth_callbacks: "omniauth_callbacks"
