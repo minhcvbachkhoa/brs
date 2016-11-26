@@ -7,6 +7,7 @@ class Book < ApplicationRecord
   has_many :marks, dependent: :destroy
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity",
     foreign_key: "trackable_id", dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   accepts_nested_attributes_for :authors,
     reject_if: lambda {|a| a[:name].blank?}, allow_destroy: true
@@ -29,7 +30,7 @@ class Book < ApplicationRecord
 
   validates :title, presence: true, length: {maximum: 50}
   validates :category, presence: true
-  # validates :publish_date, presence: true
+  validates :publish_date, presence: true
 
   mount_uploader :photo, PhotoUploader
 

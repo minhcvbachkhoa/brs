@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122162856) do
+ActiveRecord::Schema.define(version: 20161126031222) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -88,6 +88,15 @@ ActiveRecord::Schema.define(version: 20161122162856) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "favorite_authors", force: :cascade do |t|
+    t.integer  "author_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_favorite_authors_on_author_id"
+    t.index ["user_id"], name: "index_favorite_authors_on_user_id"
+  end
+
   create_table "feed_backs", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -141,6 +150,17 @@ ActiveRecord::Schema.define(version: 20161122162856) do
     t.index ["user_id"], name: "index_marks_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "recipient_id"
+    t.boolean  "read",         default: false
+    t.integer  "book_id"
+    t.integer  "author_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["author_id"], name: "index_notifications_on_author_id"
+    t.index ["book_id"], name: "index_notifications_on_book_id"
+  end
+
   create_table "requests", force: :cascade do |t|
     t.string   "book_title"
     t.date     "book_publish_date"
@@ -168,6 +188,7 @@ ActiveRecord::Schema.define(version: 20161122162856) do
     t.string   "name"
     t.boolean  "admin",                  default: false
     t.string   "image"
+    t.integer  "new_notification"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "email",                  default: "",    null: false
