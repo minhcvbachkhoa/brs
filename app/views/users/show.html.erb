@@ -14,16 +14,16 @@
         <br>
         <div class="w3-container">
           <p class="td-p-flex">
-            <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal">
+            <i class="fa fa-envelope fa-fw w3-margin-right w3-text-theme">
             </i><%= @user.email %>
           </p>
           <p class="td-p-flex">
-            <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal">
+            <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme">
             </i>
             <%= l @user.created_at, format: :default %>
           </p>
           <p>
-            <i class="fa fa-file-text-o fa-fw w3-margin-right w3-large w3-text-teal"></i>
+            <i class="fa fa-file-text-o fa-fw w3-margin-right w3-text-theme"></i>
             <%= link_to user_list_books_path(@user,
               book_status: Settings.book.list_book[0]), remote: true do %>
               <%= @user.size_reading %>
@@ -31,7 +31,7 @@
             <% end %>
           </p>
           <p>
-            <i class="fa fa-file-text fa-fw w3-margin-right w3-large w3-text-teal"></i>
+            <i class="fa fa-file-text fa-fw w3-margin-right w3-text-theme"></i>
             <%= link_to user_list_books_path(@user,
               book_status: Settings.book.list_book[1]), remote: true do %>
               <%= @user.size_read %>
@@ -39,11 +39,18 @@
             <% end %>
           </p>
           <p>
-            <i class="fa fa-star fa-fw w3-margin-right w3-large w3-text-teal"></i>
+            <i class="fa fa-star fa-fw w3-margin-right w3-text-theme"></i>
             <%= link_to user_list_books_path(@user,
               book_status: Settings.book.list_book[2]), remote: true do %>
               <%= @user.size_favorite %>
               <%= t "book.favorite" %>
+            <% end %>
+          </p>
+          <p>
+            <i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i>
+            <%= link_to authors_path(type: "favorite") do %>
+              <%= current_user.list_favorite_authors.size %>
+              <%= t "author.list_favorite" %>
             <% end %>
           </p>
         </div>
