@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :description
       t.date :publish_date
-      t.integer :pages
+      t.integer :pages, default: 0
       t.string :photo
       t.integer :sum_rate, default: 0
       t.integer :sum_point, default: 0
