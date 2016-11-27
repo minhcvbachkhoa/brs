@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20161126031222) do
     t.string   "title"
     t.string   "description"
     t.date     "publish_date"
-    t.integer  "pages"
+    t.integer  "pages",        default: 0
     t.string   "photo"
     t.integer  "sum_rate",     default: 0
     t.integer  "sum_point",    default: 0
@@ -188,7 +188,7 @@ ActiveRecord::Schema.define(version: 20161126031222) do
     t.string   "name"
     t.boolean  "admin",                  default: false
     t.string   "image"
-    t.integer  "new_notification"
+    t.integer  "new_notification",       default: 0
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "email",                  default: "",    null: false
